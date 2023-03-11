@@ -77,11 +77,6 @@ h1 {
   transition: 0.9s;
 }
 
-/* .bayan-body img {
-  width: 50%;
-  transition: 0.5s;
-} */
-
 .bayan-body img {
   width: auto;
   max-width: 50%;
