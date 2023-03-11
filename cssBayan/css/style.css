@@ -1,37 +1,36 @@
-
 :root {
   --color-dark: #000000;
   --color-light: #ffffff;
-  --color-add:  #0000ff;
+  --color-add: #8f8f99;
 }
 
 *,
 ::before,
 ::after {
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 
 body {
-  min-width: 480px;
   min-height: 100vh;
   font-family: Verdana, sans-serif;
-  font-size: 1rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 1.2rem;
+  font-size: 1rem;
+  /* line-height: 1.2rem; */
   color: var(--color-dark);
-  background-color: rgba(198, 212, 212, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-
-
-
+h1{
+  text-align: center;
+  margin-bottom: 2vh;
+}
 .bayan {
-  width: 50vw;
-  margin: 10vh auto;
+  width: 90vw;
+  margin: 5vh auto;
 }
 
 .bayan input {
@@ -41,61 +40,62 @@ body {
 .bayan-title {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  margin: 0;
+  padding: 2vw;
   width: 100%;
+  font-size: 1.1rem;
   cursor: pointer;
   color: var(--color-add);
-  border-top: 2px solid rgba(171, 204, 204, 0.6);
+  border-top: 0.15rem solid rgba(171, 204, 204, 0.6);
   transition: 0.5s;
 }
 
-.bayan-title span {
-  width: 10%;
+.bayan-title .letter{
+  color: #ac2401;
+  font-size: 1.3em;
 }
 
-.bayan-item span::before {
-  content: '\25BC	';
-  opacity: 0.0;
+.bayan-item .marker::before {
+  content: '\2716';
+}
+.bayan-item .marker {
+  opacity: 0;
   transition: 0.5s;
+  transform: rotate(45deg);
 }
 
-
-
-.bayan:hover .bayan-title span::before {
-  opacity: 1;
-}
-
-.bayan:hover .bayan-title,
-input:checked+.bayan-item .bayan-title {
-  color: var(--color-dark);
-}
-
-.bayan-item:hover span::before,
-input:checked+.bayan-item span::before {
-  content: '\25B6	';
-}
 
 .bayan-body {
   width: 100%;
   height: 0;
-  margin: 0 15px;
-  padding: 0 30px;
+  padding: 0 2vw;
   text-align: center;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.9s;
 }
 
 .bayan-body img {
-  height: 50px;
+  width: 50%;
+  transition: 0.5s;
 }
+
+
+input:checked+.bayan-item .marker {
+  transform: rotate(180deg);
+}
+
+input:checked+.bayan-item .bayan-title {
+  color: var(--color-dark);
+}
+
 
 
 input:checked+.bayan-item .bayan-body {
   height: auto;
-  padding: 20px 30px;
+  padding: 2vw;
 }
+
+
 
 
 /* cursor over the memes (hover) effect exists only for desktop devices */
@@ -104,17 +104,46 @@ input:checked+.bayan-item .bayan-body {
   .bayan-item:hover .bayan-body,
   .bayan-body:hover {
     height: auto;
-    padding: 20px 30px;
+    padding: 2vw;
   }
 
+  .bayan-item:hover .marker {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+
+  .bayan:hover .bayan-title {
+    color: var(--color-dark);
+  }
+  .bayan:hover .marker {
+    opacity: 1;
+  }
+  
 }
 
 
 input:checked+.bayan-item:active .bayan-title,
 .bayan-item:active .bayan-title {
-  color:  var(--color-add);
+  color: var(--color-add);
 }
 
 .bayan-item:active img {
   opacity: 0.5;
+}
+
+
+
+/* mobile 320x568, tablet 820x1180, desktop 1920×1080  */
+
+@media (min-width: 820px) {
+  .bayan-title {
+    font-size: 1.3rem;
+  }
+}
+
+
+@media (min-width: 1920px) {
+  .bayan-title {
+    font-size: 1.5rem;
+  }
 }
